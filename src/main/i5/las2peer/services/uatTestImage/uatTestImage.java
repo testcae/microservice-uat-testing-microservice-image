@@ -77,9 +77,9 @@ public class uatTestImage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "uat-testing-microservice-image", version = "$Metadata_Version$",
-          description = "$Metadata_Description$",
-          termsOfService = "$Metadata_Terms$",
+      info = @Info(title = "uat-testing-microservice-image", version = "1",
+          description = "Microservice for image for UAT testing",
+          termsOfService = "LICENSE.txt",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/testcae/microservice-uat-testing-microservice-image/blob/master/LICENSE.txt") ) )
@@ -88,7 +88,66 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * postImage
+   *
+   * 
+   * @param payloadPostImage  a JSONObject
+   * 
+   * @return Response 
+   * 
+   */
+  @POST
+  @Path("//image/")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responsePostImage")
+  })
+  @ApiOperation(value = "postImage", notes = "$HTTP_Method_Description$")
+  public Response postImage(String payloadPostImage) {
+    JSONObject payloadPostImage_JSON = (JSONObject) JSONValue.parse(payloadPostImage);
+
+    // responsePostImage
+    boolean responsePostImage_condition = true;
+    if(responsePostImage_condition) {
+      JSONObject resultPostImage = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(resultPostImage.toJSONString()).build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * getImage
+   *
+   * 
+   * @param payloadGetImage  a JSONObject
+   * 
+   * @return Response responseGetImage
+   * 
+   */
+  @GET
+  @Path("//image/")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseGetImage")
+  })
+  @ApiOperation(value = "getImage", notes = "$HTTP_Method_Description$")
+  public Response getImage(classes.image payloadGetImage) {
+
+    // responseGetImage
+    boolean responseGetImage_condition = true;
+    if(responseGetImage_condition) {
+      JSONObject resultGetImage = new classes().new image().toJSON();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(resultGetImage.toJSONString()).build();
+    }
+    return null;
+  }
+
+
 
   }
 
