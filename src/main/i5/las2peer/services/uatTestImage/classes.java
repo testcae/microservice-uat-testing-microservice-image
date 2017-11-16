@@ -48,9 +48,9 @@ public class classes {
     }
 
 }
-    class image {
+    class imageMusic {
 
-    public image() {}
+    public imageMusic() {}
     
     private String imageName;
 
@@ -81,9 +81,9 @@ public class classes {
     }
 
 }
-    class imageMusic {
+    class image {
 
-    public imageMusic() {}
+    public image() {}
     
     private String imageName;
 
