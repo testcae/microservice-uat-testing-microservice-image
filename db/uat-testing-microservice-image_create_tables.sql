@@ -8,8 +8,9 @@
 --
 CREATE TABLE uatTest.tblImage (
   imageUrl VARCHAR(255) ,
+  imageId INT(11) ,
   imageName VARCHAR(255) ,
-CONSTRAINT imageName_PK PRIMARY KEY (imageName)
+CONSTRAINT imageId_PK PRIMARY KEY (imageId)
  
 );
 

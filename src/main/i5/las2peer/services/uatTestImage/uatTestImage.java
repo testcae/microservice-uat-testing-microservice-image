@@ -93,9 +93,9 @@ public class uatTestImage extends RESTService {
    * postImage
    *
    * 
-   * @param payloadPostImage  a JSONObject
+   * @param payloadPostImage Payload post image for uat testing image aaaa a JSONObject
    * 
-   * @return Response 
+   * @return Response Response post image for uat testing image
    * 
    */
   @POST
@@ -103,16 +103,15 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responsePostImage")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response post image for uat testing image")
   })
   @ApiOperation(value = "postImage", notes = "$HTTP_Method_Description$")
-  public Response postImage(String payloadPostImage) {
-    JSONObject payloadPostImage_JSON = (JSONObject) JSONValue.parse(payloadPostImage);
+  public Response postImage(classes.image payloadPostImage) {
 
     // responsePostImage
     boolean responsePostImage_condition = true;
     if(responsePostImage_condition) {
-      JSONObject resultPostImage = new JSONObject();
+      JSONObject resultPostImage = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(resultPostImage.toJSONString()).build();
     }
     return null;
@@ -123,9 +122,9 @@ public class uatTestImage extends RESTService {
    * getImage
    *
    * 
-   * @param payloadGetImage  a JSONObject
+   * @param payloadGetImage Payload get image UAT testing a JSONObject
    * 
-   * @return Response responseGetImage
+   * @return Response Response get image UAT testing
    * 
    */
   @GET
@@ -133,7 +132,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseGetImage")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response get image UAT testing")
   })
   @ApiOperation(value = "getImage", notes = "$HTTP_Method_Description$")
   public Response getImage(classes.image payloadGetImage) {
