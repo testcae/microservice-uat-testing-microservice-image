@@ -50,7 +50,7 @@ public class uatTestImageTest {
   // version does not matter in tests
   private static final ServiceNameVersion testTemplateService = new ServiceNameVersion(uatTestImage.class.getCanonicalName(),"0.1");
 
-  private static final String mainPath = "image/";
+  private static final String mainPath = "image2/";
 
 
   /**

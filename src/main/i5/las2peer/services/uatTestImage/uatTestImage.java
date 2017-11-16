@@ -42,7 +42,7 @@ import org.json.simple.*;
  * outsourced to (imported) classes.
  *
  */
-@ServicePath("image/")
+@ServicePath("image2/")
 @ManualDeployment
 public class uatTestImage extends RESTService {
 
