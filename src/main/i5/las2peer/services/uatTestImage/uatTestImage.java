@@ -122,7 +122,7 @@ public class uatTestImage extends RESTService {
    * getImage
    *
    * 
-   * @param payloadGetImage Payload get image UAT testing a JSONObject
+   *
    * 
    * @return Response Response get image UAT testing
    * 
@@ -135,7 +135,7 @@ public class uatTestImage extends RESTService {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response get image UAT testing")
   })
   @ApiOperation(value = "getImage", notes = "$HTTP_Method_Description$")
-  public Response getImage(classes.image payloadGetImage) {
+  public Response getImage() {
 
     // responseGetImage
     boolean responseGetImage_condition = true;

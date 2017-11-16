@@ -122,10 +122,10 @@ public class uatTestImageTest {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-      JSONObject payloadGetImage = new JSONObject();
+
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "/get/", payloadGetImage.toJSONString(),
-        MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
+      ClientResponse result = c.sendRequest("GET", mainPath + "/get/", "",
+        MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
       System.out.println("Result of 'testgetImage': " + result.getResponse().trim());
     } catch (Exception e) {
