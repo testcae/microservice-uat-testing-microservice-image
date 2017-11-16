@@ -5,9 +5,52 @@ import org.json.simple.*;
 
 public class classes {
 
-    class imageMusic {
+    class music {
 
-    public imageMusic() {}
+    public music() {}
+    
+    private String musicName;
+
+    public void setmusicName(String setValue) {
+        this.musicName = setValue;
+    }
+
+    public String getmusicName() {
+        return this.musicName;
+    }
+    private int musicId;
+
+    public void setmusicId(int setValue) {
+        this.musicId = setValue;
+    }
+
+    public int getmusicId() {
+        return this.musicId;
+    }
+    private String musicUrl;
+
+    public void setmusicUrl(String setValue) {
+        this.musicUrl = setValue;
+    }
+
+    public String getmusicUrl() {
+        return this.musicUrl;
+    }
+
+    public JSONObject toJSON() {
+
+        JSONObject jo = new JSONObject();
+        jo.put("musicName", this.musicName); 
+        jo.put("musicId", this.musicId); 
+        jo.put("musicUrl", this.musicUrl); 
+
+        return jo;
+    }
+
+}
+    class image {
+
+    public image() {}
     
     private String imageName;
 
@@ -38,9 +81,9 @@ public class classes {
     }
 
 }
-    class image {
+    class imageMusic {
 
-    public image() {}
+    public imageMusic() {}
     
     private String imageName;
 

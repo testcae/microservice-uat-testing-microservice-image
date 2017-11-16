@@ -50,7 +50,7 @@ public class uatTestImageTest {
   // version does not matter in tests
   private static final ServiceNameVersion testTemplateService = new ServiceNameVersion(uatTestImage.class.getCanonicalName(),"0.1");
 
-  private static final String mainPath = "http://ec2-18-220-244-52.us-east-2.compute.amazonaws.com:8086";
+  private static final String mainPath = "image";
 
 
   /**
@@ -102,7 +102,7 @@ public class uatTestImageTest {
     try {
       JSONObject payloadPostImage = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("POST", mainPath + "//image/", payloadPostImage.toJSONString(),
+      ClientResponse result = c.sendRequest("POST", mainPath + "/post/", payloadPostImage.toJSONString(),
         MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
       System.out.println("Result of 'testpostImage': " + result.getResponse().trim());
@@ -124,7 +124,7 @@ public class uatTestImageTest {
     try {
       JSONObject payloadGetImage = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "//image/", payloadGetImage.toJSONString(),
+      ClientResponse result = c.sendRequest("GET", mainPath + "/get/", payloadGetImage.toJSONString(),
         MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
       System.out.println("Result of 'testgetImage': " + result.getResponse().trim());
