@@ -137,8 +137,11 @@ public class uatTestImage extends RESTService {
   @ApiOperation(value = "getImage", notes = "$HTTP_Method_Description$")
   public Response getImage() {
  
-    try { 
- 
+    try {
+
+    } catch(Exception e) {
+      JSONObject result = new JSONObject(); 
+      return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(result.toJSONString()).build();
     } 
     // responseGetImage
     boolean responseGetImage_condition = true;
