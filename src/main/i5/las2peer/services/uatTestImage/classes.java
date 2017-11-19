@@ -2,6 +2,7 @@ package i5.las2peer.services.uatTestImage;
 
 import java.util.*;
 import org.json.simple.*;
+import org.json.simple.parser.ParseException;
 
 public class classes {
 
@@ -45,6 +46,13 @@ public class classes {
         jo.put("imageId", this.imageId); 
 
         return jo;
+    }
+
+    public void fromJson(String jsonString) throws ParseException {
+        JSONObject jsonObject = (JSONObject) JSONValue.parseWithException(jsonString);
+        this.imageId = ((Long)jsonObject.get("imageId")).intValue();
+        this.imageName = (String) jsonObject.get("imageName");
+        this.imageUrl = (String) jsonObject.get("imageUrl");
     }
 
 }

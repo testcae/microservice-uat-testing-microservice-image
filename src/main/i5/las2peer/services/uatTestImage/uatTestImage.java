@@ -106,20 +106,30 @@ public class uatTestImage extends RESTService {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response post image for uat testing image")
   })
   @ApiOperation(value = "postImage", notes = "$HTTP_Method_Description$")
-  public Response postImage(classes.image payloadPostImage) {
+  public Response postImage(String payloadPostImage) {
+
+    classes.image payloadObject = new classes().new image();
+    try {
+        payloadObject.fromJson(payloadPostImage);
+    } catch (Exception e) {
+        e.printStackTrace();
+        JSONObject result = new JSONObject(); 
+        return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+    }
 
     try { 
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement(
           "INSERT INTO uatTest.tblImage(imageName, imageUrl) VALUES(?,?) " + 
           "ON DUPLICATE KEY UPDATE imageName = ?, imageUrl = ?");
-        query.setString(1, payloadPostImage.getimageName());
-        query.setString(2, payloadPostImage.getimageUrl());
-        query.setString(3, payloadPostImage.getimageName());
-        query.setString(4, payloadPostImage.getimageUrl());
+        query.setString(1, payloadObject.getimageName());
+        query.setString(2, payloadObject.getimageUrl());
+        query.setString(3, payloadObject.getimageName());
+        query.setString(4, payloadObject.getimageUrl());
         query.executeUpdate();
         return Response.status(HttpURLConnection.HTTP_OK).entity("{}").build();
     } catch(Exception e) {
+      e.printStackTrace();
       JSONObject result = new JSONObject(); 
       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(result.toJSONString()).build();
     }
@@ -160,6 +170,7 @@ public class uatTestImage extends RESTService {
         // responseGetImage
         return Response.status(HttpURLConnection.HTTP_OK).entity(jsonResult.toJSONString()).build();
     } catch(Exception e) {
+      e.printStackTrace();
       JSONObject result = new JSONObject(); 
       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(result.toJSONString()).build();
     }
