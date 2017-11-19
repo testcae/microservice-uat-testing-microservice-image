@@ -139,7 +139,7 @@ public class uatTestImage extends RESTService {
  
     try { 
         Connection conn = service.dbm.getConnection();
-        PreparedStatement query = conn.prepareStatement("SELECT * FROM tblImage");
+        PreparedStatement query = conn.prepareStatement("SELECT * FROM uatTest.tblImage");
         ResultSet result = query.executeQuery();
         JSONArray jsonResult = new JSONArray();
         while(result.next()) {
