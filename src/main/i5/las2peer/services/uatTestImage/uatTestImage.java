@@ -136,7 +136,10 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "getImage", notes = "$HTTP_Method_Description$")
   public Response getImage() {
-
+ 
+    try { 
+ 
+    } 
     // responseGetImage
     boolean responseGetImage_condition = true;
     if(responseGetImage_condition) {
